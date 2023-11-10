@@ -1,0 +1,38 @@
+this is styling
+html, body{
+  height: 100%;
+  width: 100%;
+}
+
+  body{
+  background-color: blue;
+         
+ }
+         
+  h1{
+ text-align: center;
+ }
+         
+
+
+ .calbody{
+  width: 400px;
+  border-radius: 20px;
+  height: 300px;  
+  background: #097C9B;  
+  border: 1px solid #ff0;  
+  padding: 10px;  
+  margin-left: 20px;
+}
+
+ .good{
+  margin-right: 20px;
+
+   padding: 10px;
+   margin-left: 25px;
+ }
+
+ .pic{
+   text-align: center;
+   margin-top: 20px;
+ }
