@@ -1,69 +1,80 @@
-<html>
-    <head>
-        <title>CALCULATOR</title>
-        <link rel="stylesheet" type="text/css" href="style.css"/>
-        
-    </head>
-    <body>
-            <script>
-                function calculator(){
-                    var a = parseFloat(document.getElementById("input1").value);
-                    var b = parseFloat(document.getElementById("input2").value);
-                    var c = document.getElementById("sign").value;
-
-                    if (c === '+'){
-                        document.getElementById("result").value = a+b;
-                    }
-                    
-                    if (c === '-'){
-                        document.getElementById("result").value = a-b;
-                    }
-
-                     if (c === '*'){ 
-                        document.getElementById("result").value = a*b;
-                    }
-
-                      if (c === '/'){
-                        document.getElementById("result").value = a/b;
-                    }
-}
-                  
-
-
-                </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
         <h1>CALCULATOR</h1>
-     
-         <center><div class="calbody">
-         
-            <input type="text" id="input1">
+        <div class="calculator">
+            <input type="text" id="input1" placeholder="Enter number 1">
+            
+            <select id="sign">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            
+            <input type="text" id="input2" placeholder="Enter number 2">
 
-            <select name="drop-down" id="sign">
-                    <option value="+">+</option>
-                    <option value="-">-</option>
-                    <option value="*">*</option>
-                    <option value="/">/</option>
-                  </select>
-                  
-            <input type="text" id="input2">
-
-            <div class="good">
-               
-                  
-
-                    <button onclick="calculator()">=</button>
-
-            </div> 
-
-            <div class="pic">
-                    <input id="result">
+            <div class="controls">
+                <button onclick="calculator()">Calculate</button>
+                <button onclick="clearFields()">Clear</button>
             </div>
-          </div>
-          </center>
 
+            <div class="result-container">
+                <input type="text" id="result" placeholder="Result" readonly>
+            </div>
+        </div>
+    </div>
+    
+   <script>
+    function calculator() {
+    var a = parseFloat(document.getElementById("input1").value);
+    var b = parseFloat(document.getElementById("input2").value);
+    var c = document.getElementById("sign").value;
 
-  
-                
+    if (isNaN(a) || isNaN(b)) {
+        alert("Please enter valid numbers!");
+        return;
+    }
 
+    var result;
+    switch (c) {
+        case '+':
+            result = a + b;
+            break;
+        case '-':
+            result = a - b;
+            break;
+        case '*':
+            result = a * b;
+            break;
+        case '/':
+            if (b === 0) {
+                alert("Cannot divide by zero!");
+                return;
+            }
+            result = a / b;
+            break;
+        default:
+            alert("Invalid operation selected!");
+            return;
+    }
 
-           </body>
+    document.getElementById("result").value = result;
+}
+
+function clearFields() {
+    document.getElementById("input1").value = '';
+    document.getElementById("input2").value = '';
+    document.getElementById("result").value = '';
+}
+
+   </script>
+</body>
 </html>
